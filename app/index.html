@@ -1,34 +1,19 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App Name</title>
-
-  <!-- Crayons CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/css/crayons-min.css">
-
-  <!-- Crayons JavaScript -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.js"></script>
+  <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      app.initialized().then(function(client) {
+        client.instance.context().then(function(context) {
+          document.getElementById("call-info").innerText = JSON.stringify(context.data, null, 2);
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-  <div class="app-container">
-    <!-- Notification or Conversation Card Placeholder -->
-    <fw-card class="notification_card">
-      <h4>Call Information</h4>
-      <p>Details about the call...</p>
-    </fw-card>
-
-    <!-- Close Button -->
-    <fw-button id="closeButton" color="secondary">Close</fw-button>
-  </div>
-
-  <!-- External JavaScript File -->
-  <script src="app.js"></script>
-<script defer src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
-<script defer src="scripts/app.js"></script>
+  <h2>전화가 왔습니다!</h2>
+  <pre id="call-info"></pre>
 </body>
 </html>

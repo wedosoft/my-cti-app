@@ -35,36 +35,24 @@ function setupApp() {
   }
 }
 
-// 'onCallCreate' 이벤트를 처리하는 함수 정의
-function onCallCreateHandler(event) {
-  console.log('전화 생성 이벤트 수신됨');
-  
+async function onCallCreateHandler() {
   try {
-    // Freshworks에서 event.helper.getData()가 적절하다고 확인되었으므로 유지
-    const callDetails = event.helper.getData();
-    console.log('전화 상세정보:', callDetails);
+    let lastCall = await client.db.get("lastCall");
     
-    // 모달 표시
-    client.interface.trigger('showModal', { 
-      title: "통화 상세정보", 
-      template: "index.html"
-    }).then(function() {
-      console.log('모달이 성공적으로 표시되었습니다');
-      
-      // 모달이 열린 후에 DOM 요소 업데이트 시도
-      setTimeout(() => {
-        const notificationCard = document.querySelector('.notification_card p');
-        if (notificationCard) {
-          notificationCard.textContent = `발신자: ${callDetails.call.phone_number}`;
-        } else {
-          console.error('notification_card 요소를 찾을 수 없습니다');
-        }
-      }, 1000); // 모달이 완전히 로드될 시간을 더 여유 있게 설정
-      
-    }).catch(function(error) {
-      console.error('모달 표시 중 오류 발생:', error);
-    });
+    if (lastCall) {
+      console.log('전화 수신 감지:', lastCall);
+      showModal(lastCall);
+    }
   } catch (error) {
-    console.error('이벤트 처리 중 오류 발생:', error);
+    console.error('전화 정보 가져오기 오류:', error);
   }
+}
+
+// 전화 수신 시 모달 표시
+function showModal(callData) {
+  client.interface.trigger("showModal", {
+    title: "전화 수신",
+    template: "index.html",
+    data: callData
+  });
 }

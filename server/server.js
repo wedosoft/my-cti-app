@@ -1,17 +1,15 @@
-
 // server.js
 exports = {
-    // Handler for the 'onCallCreate' product event
+    // 'onCallCreate' 제품 이벤트를 위한 핸들러
     onCallCreateHandler: function(payload) {
-        // Perform necessary backend operations here
+        // 전화 세부 정보 로깅
+        console.log(`새 전화가 생성되었습니다. 세부 정보: ${JSON.stringify(payload)}`);
 
-        // Example backend operation: Logging the call details
-        console.log(`New call created with details: ${JSON.stringify(payload)}`);
-
-        // Use 'renderData' to send a response back to the frontend if required
-        // renderData(null, { success: true, message: 'Call handled successfully' });
-
-        // If there's an error during backend operations, send the error using 'renderData'
-        // renderData({ message: 'Error handling the call' });
+        // 클라이언트 측으로 데이터를 보내려면 'renderData' 사용
+        renderData(null, { 
+            success: true, 
+            message: '전화가 성공적으로 처리되었습니다',
+            data: payload
+        });
     }
 };

@@ -1,0 +1,31 @@
+
+      --------------------------------------
+      Error Stack:: "AxiosError: timeout of 20000ms exceeded\n    at x.<anonymous> (/Users/alan/.vscode/extensions/freshworksmarketplace.freddy-copilot-2.3.1/dist/extension.js:2:181061)\n    at x.emit (node:events:518:28)\n    at Timeout.<anonymous> (/Users/alan/.vscode/extensions/freshworksmarketplace.freddy-copilot-2.3.1/dist/extension.js:2:47549)\n    at listOnTimeout (node:internal/timers:581:17)\n    at processTimers (node:internal/timers:519:7)"
+      Error Message:: "timeout of 20000ms exceeded"
+      
+      
+      
+      
+      
+      
+      
+
+      Timestamp:: Fri, 28 Feb 2025 07:01:02 GMT
+      Extension Version:: 2.3.1
+      --------------------------------------
+    
+      --------------------------------------
+      Error Stack:: "AxiosError: timeout of 20000ms exceeded\n    at x.<anonymous> (/Users/alan/.vscode/extensions/freshworksmarketplace.freddy-copilot-2.3.1/dist/extension.js:2:181061)\n    at x.emit (node:events:518:28)\n    at Timeout.<anonymous> (/Users/alan/.vscode/extensions/freshworksmarketplace.freddy-copilot-2.3.1/dist/extension.js:2:47549)\n    at listOnTimeout (node:internal/timers:581:17)\n    at processTimers (node:internal/timers:519:7)"
+      Error Message:: "timeout of 20000ms exceeded"
+      Error Name:: "AxiosError"
+      
+      
+      
+      
+      
+      
+
+      Timestamp:: Fri, 28 Feb 2025 07:01:02 GMT
+      Extension Version:: 2.3.1
+      --------------------------------------
+    
